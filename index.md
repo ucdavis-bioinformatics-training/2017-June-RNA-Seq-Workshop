@@ -16,7 +16,8 @@ Tuesday
 * Files and Filetypes for Genomes/Transcriptomes/Annotation
 * Experimental Design and Cost Estimation (talk)
 * Preprocessing Data (talk)
-* [Preprocessing Data hands-on](https://ucdavis-bioinformatics-training.github.io/2017-June-RNA-Seq-Workshop/preproc.html)
+#* [Preprocessing Data hands-on](https://ucdavis-bioinformatics-training.github.io/2017-June-RNA-Seq-Workshop/preproc.html)
+* [Preprocessing Data hands-on](preproc)
 
 
 Wednesday
