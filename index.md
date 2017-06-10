@@ -16,7 +16,7 @@ Tuesday
 * Files and Filetypes for Genomes/Transcriptomes/Annotation
 * Experimental Design and Cost Estimation (talk)
 * Preprocessing Data (talk)
-* Preprocessing Data hands-on
+* [Preprocessing Data hands-on] (preproc)
 
 
 Wednesday
