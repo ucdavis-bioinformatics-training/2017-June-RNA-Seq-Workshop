@@ -1,6 +1,6 @@
 Monday
 =======
 
-Logging on
-Intro to command-line
-Advanced command-line
+* Logging on
+* Intro to command-line
+* Advanced command-line
