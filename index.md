@@ -7,6 +7,7 @@ Monday
 * What is Bioinformatics? (talk)
 * Running jobs on the Cluster
 * Hardware/Software considerations (talk)
+* [R script](Monday/snp_analysis.R)
 
 
 Tuesday
