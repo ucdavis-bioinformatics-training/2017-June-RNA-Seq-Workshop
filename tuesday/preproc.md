@@ -28,7 +28,7 @@ In this exercise, we will learn how to preprocess our data for alignment. We wil
     cd I894_S90_L006
     zless I894_S90_L006_R1_001.fastq.gz
 
-Press 'q' to exit this screen.
+ Press 'q' to exit this screen.
 
 
 6. Now go back to your 'rnaseq_example' directory and create another directory called '01-QA':
