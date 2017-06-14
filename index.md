@@ -16,14 +16,15 @@ Tuesday
 * Intro to Sequencing (talk)
 * Files and Filetypes for Genomes/Transcriptomes/Annotation
 * Experimental Design and Cost Estimation (talk)
-* Preprocessing Data (talk)
+* Preprocessing Data
 * [Preprocessing Data hands-on](tuesday/preproc)
 
 
 Wednesday
 ==========
 
-* Differences Between Aligners (talk)
+* Differences Between Aligners
+* Aligning Data
 * Tag-Seq vs. RNA-Seq (talk)
 * Alignment to Counts and MDS Plots
 * Bacterial RNA-Seq (talk)
@@ -34,8 +35,7 @@ Thursday
 
 * Intro to R
 * Differential Gene Expression Statistics (talk)
-* DE Analysis (counts to lists of DE genes)
-* Models and Contrasts
+* DE Analysis (counts to lists of DE genes), Models and Contrasts
 
 
 Friday
