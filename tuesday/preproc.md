@@ -8,90 +8,71 @@ In this exercise, we will learn how to preprocess our data for alignment. We wil
     cd
     mkdir rnaseq_example
 
+---
 
 2\. Next, go into that directory and link to the directory for your raw data. This data comes from an Arabidopsis RNA-Seq project that we did:
 
     cd rnaseq_example
     ln -s /share/biocore-archive/Leveau_J_UCD/RNASeq_Arabidopsis_2016/00-RawData
 
+---
 
 3\. Now, take a look inside that directory.
 
     cd 00-RawData
     ls
-    
+
+--- 
 
 4\. You will see a list of directories and some other files. Take a look at all the files in all of the directories:
 
     ls *
- 
+
+---
 
 5\. Pick a directory and go into it. Look at one of the files using the 'zless' command:
 
     cd I894_S90_L006
     zless I894_S90_L006_R1_001.fastq.gz
 
- Press 'q' to exit this screen.
+Make sure you can identify which lines correspond to a single read and which lines are the header, sequence, and quality values. Press 'q' to exit this screen. Then, let's figure out the number of reads in this file. A simple way to do that is to count the number of lines and divide by 4 (because the record of each read uses 4 lines). In order to do this, use "zcat" to output the uncompressed file and pipe that to "wc" to count the number of lines:
 
+    zcat I894_S90_L006_R1_001.fastq.gz | wc -l
 
-6\. Now go back to your 'rnaseq_example' directory and create another directory called '01-QA':
+Divide this number by 4 and you have the number of reads in this file. One more thing to try is to figure out the length of the reads without counting each nucleotide. First get the first 4 lines of the file (i.e. the first record):
+
+    zcat I894_S90_L006_R1_001.fastq.gz | head -4
+
+Then, copy and paste the sequence line into the following command (replace [sequence] with the line):
+
+    echo -n [sequence] | wc -c
+
+This will give you the length of the read. See if you can figure out how this command works.
+
+---
+
+6\. Now go back to your 'rnaseq_example' directory and create another directory called '01-Trimming':
 
     cd ~/rnaseq_example
-    mkdir 01-QA
+    mkdir 01-Trimming
 
-7\. Go into that directory (make sure your prompt shows that you are in the 01-QA directory) and link to all of the files you will be using:
+---
 
-    cd 01-QA
+7\. Go into that directory (make sure your prompt shows that you are in the 01-Trimming directory) and link to all of the files you will be using:
+
+    cd 01-Trimming
     ln -s ../00-RawData/*/*.gz .
     ls -l
 
 Now you should see a long listing of all the links you just created.
 
-8\. Now we want to check for phiX and rRNA contamination. In order to do that we need to download the PhiX genome and Arabidopsis ribosomal RNA. And while we're at it, let's download the Arabidopsis genome as well. First, make a directory called 'ref' and go into it. 
-
-    cd ~/rnaseq_example
-    mkdir ref
-    cd ref
-
-Then, go to the [Illumina iGenomes site](https://support.illumina.com/sequencing/sequencing_software/igenome.html). We want to download the NCBI TAIR10 Arabidopsis file and the PhiX Illumina RTA file to our 'ref' directory. In order to do that, we will use the 'wget' command. Right click (or whatever is right for your laptop) on the link for Arabidopsis and choose "Copy Link Location" (or something similar). Then use wget to pull down the archive files:
-
-    wget ftp://igenome:G3nom3s4u@ussd-ftp.illumina.com/Arabidopsis_thaliana/NCBI/TAIR10/Arabidopsis_thaliana_NCBI_TAIR10.tar.gz
-
-Do the same for PhiX:
-
-    wget ftp://igenome:G3nom3s4u@ussd-ftp.illumina.com/PhiX/Illumina/RTA/PhiX_Illumina_RTA.tar.gz
-
 ---
 
-9\. Next, we need to uncompress and extract all the files from the archives. We will use the 'tar' command. First, let's take a look at the options of the 'tar' command:
+8\. Now, we will use software called 'scythe' (developed at the UC Davis Bioinformatics Core) to do adapter trimming. First we will run it on just one pair of files. First, load the module, and then type 'scythe' with no arguments to see the options.
 
-    man tar
+    module load scythe
+    scythe
 
-You will see that 'tar' has many options... we will be using the "-x", "-v", "-z", and "-f" options, which are used for extraction, verbose information output, unzipping the file, and giving the filename, respectively. Type "q" to exit this screen.
+Looking at the Usage you can see that scythe needs an adapter file and the sequence file. The adapter file will depend upon which kit you used... typically you can find the adapters from the sequencing provider. In this case, Illumina TruSeq adapters were used, so we have put the adapters (forward & reverse) in a file for you already ([adapters file](tuesday/adapters.fasta)). You will have to use the "wget" command to copy the file to your class directory:
 
-    tar -x -v -z -f Arabidopsis_thaliana_NCBI_TAIR10.tar.gz
-
-Do the same for PhiX:
-
-    tar -x -v -z -f PhiX_Illumina_RTA.tar.gz
-    
-Explore the directories that you've just created. You'll find annotation and indexed sequence for some popular alignment programs.
-
----
-
-10\. Now, let's run some Q&A on one pair of our raw data files. First go back to our Q&A directory and load the bwa aligner:
-
-    cd ~/rnaseq_example/01-QA
-    ls -ltrh
-    module load bwa
-
-Take a look at the options to bwa, by typing 'bwa' with no arguments. Then type 'bwa mem' to get the options for that subcommand:
-
-    bwa
-    bwa mem
-
-Notice the Usage that is printed to the screen. We will use the "-t" option to use 4 threads (processors). 'idxbase' refers to the basename of the index for the genome you are aligning against. First let's align against PhiX. 
-
-    bwa mem -t 4 ../ref/PhiX/Illumina/RTA/Sequence/BWAIndex/genome.fa C61_S67_L006_R1_001.fastq.gz C61_S67_L006_R2_001.fastq.gz > phix.sam
-
-We use a relative path to specify the index file and we redirect the output to a new file.
+    wget https://ucdavis-bioinformatics-training.github.io/2017-June-RNA-Seq-Workshop/tuesday/adapters.fasta
