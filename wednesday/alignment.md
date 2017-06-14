@@ -1,5 +1,5 @@
-Preprocessing Data
-===================
+Alignment
+==========
 
 In this exercise, we will learn how to preprocess our data for alignment. We will be doing phiX detection, ribosomal RNA detection, adapter trimming, and quality trimming.
 
