@@ -35,13 +35,13 @@ Thursday
 
 * Intro to R
 * Differential Gene Expression Statistics (talk)
-* DE Analysis (counts to lists of DE genes), Models and Contrasts
+* DE Analysis (counts to lists of DE genes)
 
 
 Friday
 =======
 
-* GO/Pathway Enrichment
+* GO/KEGG Pathway Enrichment
 * Single Cell RNA-Seq (talk)
 * Generating figures
 * Transript Assembly/Annotation (talk)
