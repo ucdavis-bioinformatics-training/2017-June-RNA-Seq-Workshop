@@ -7,7 +7,7 @@ Monday
 * Advanced command-line
 * What is Bioinformatics? (talk)
 * Hardware/Software considerations (talk)
-* Running jobs on the Cluster
+* [Running jobs on the Cluster](monday/cluster)
 
 
 Tuesday

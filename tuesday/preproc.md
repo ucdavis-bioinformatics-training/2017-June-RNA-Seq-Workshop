@@ -73,7 +73,7 @@ Now you should see a long listing of all the links you just created.
     module load scythe
     scythe
 
-Looking at the Usage you can see that scythe needs an adapter file and the sequence file. The adapter file will depend upon which kit you used... typically you can find the adapters from the sequencing provider. In this case, Illumina TruSeq adapters were used, so we have put the adapters (forward & reverse) in a file for you already ([adapters file](tuesday/adapters.fasta)). You will have to use the "wget" command to copy the file to your class directory:
+Looking at the Usage you can see that scythe needs an adapter file and the sequence file. The adapter file will depend upon which kit you used... typically you can find the adapters from the sequencing provider. In this case, Illumina TruSeq adapters were used, so we have put the adapters (forward & reverse) in a file for you already ([adapters file](adapters.fasta)). You will have to use the "wget" command to copy the file to your class directory:
 
     wget https://ucdavis-bioinformatics-training.github.io/2017-June-RNA-Seq-Workshop/tuesday/adapters.fasta
 
@@ -119,7 +119,7 @@ This will take about 5 minutes to run. If you look through the output files, you
 
 ---
 
-**12\.** We have run through adapter & quality trimming for one pair of files, but now we need to do it for all the files. For that we will be using the power of our cluster. You'll need to logout of your compute node and get back to the head node (cabernet). You'll need to download two cluster scripts [qa_task_array.sh](tuesday/qa_task_array.sh) and [qa_for_loop.sh](tuesday/qa_for_loop.sh) :
+**12\.** We have run through adapter & quality trimming for one pair of files, but now we need to do it for all the files. For that we will be using the power of our cluster. You'll need to logout of your compute node and get back to the head node (cabernet). You'll need to download two cluster scripts [qa_task_array.sh](qa_task_array.sh) and [qa_for_loop.sh](qa_for_loop.sh) :
 
     wget https://ucdavis-bioinformatics-training.github.io/2017-June-RNA-Seq-Workshop/tuesday/qa_task_array.sh
     wget https://ucdavis-bioinformatics-training.github.io/2017-June-RNA-Seq-Workshop/tuesday/qa_for_loop.sh
@@ -146,3 +146,5 @@ Use 'cat' to view the contents of the file to make sure it looks right:
 
     cat qa_task_array.sh
 
+
+chmod a+x qa_task_array.sh
