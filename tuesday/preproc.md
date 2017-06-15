@@ -1,7 +1,7 @@
 Preprocessing Data
 ===================
 
-In this exercise, we will learn how to preprocess our data for alignment. We will be doing phiX detection, ribosomal RNA detection, adapter trimming, and quality trimming.
+In this exercise, we will learn how to preprocess our data for alignment. We will be doing adapter trimming and quality trimming. Make sure you are logged into a compute node, not the head node (cabernet).
 
 **1\.** First, create a directory for the example in your home directory:
 
@@ -76,3 +76,47 @@ Now you should see a long listing of all the links you just created.
 Looking at the Usage you can see that scythe needs an adapter file and the sequence file. The adapter file will depend upon which kit you used... typically you can find the adapters from the sequencing provider. In this case, Illumina TruSeq adapters were used, so we have put the adapters (forward & reverse) in a file for you already ([adapters file](tuesday/adapters.fasta)). You will have to use the "wget" command to copy the file to your class directory:
 
     wget https://ucdavis-bioinformatics-training.github.io/2017-June-RNA-Seq-Workshop/tuesday/adapters.fasta
+
+Now run scythe specifying an output file, the adapters file, and the input file:
+
+    scythe -o I894_S90.scythe.R1.fastq -a adapters.fasta I894_S90_L006_R1_001.fastq.gz
+
+This will take approximately 5 minutes to run.
+
+---
+
+**9\.** Once that is done, let's take a look at the differences between the input and output files. First look at the input file:
+
+    zless I894_S90_L006_R1_001.fastq.gz
+
+Let's search for the adapter sequence. Type '/' (a forward slash), and then type **AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC** (the first part of the forward adapter). Press Enter. This will search for the sequence in the file and highlight each time it is found. You can now type "n" to cycle through the places where it is found. When you are done, type "q" to exit. Now look at the output file:
+
+    less I894_S90.scythe.R1.fastq
+
+If you scroll through the data (using the spacebar), you will see that some of the sequences have been trimmed. Now, try searching for **AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC** again. You shouldn't find it. You may need to use Control-C to get out of the search and then "q" to exit the 'less' screen.
+
+---
+
+**10\.** We need to run scythe on the reverse reads for that sample as well:
+
+    scythe -o I894_S90.scythe.R2.fastq -a adapters.fasta I894_S90_L006_R2_001.fastq.gz
+
+You should now have two files that have been adapter trimmed.
+
+---
+
+**11\.** Now we will trim for low quality using a program called 'sickle' (also developed at the Core). First, load the module and type 'sickle' by itself to get the usage, and then 'sickle pe' to get the usage for paired-end reads.
+
+    module load sickle
+    sickle
+    sickle pe
+
+Our reads are paired-end reads in separate files, so we will be using the "-f", "-r", "-o", and "-p" options. Remember that you will be using the scythe output files as input to this step.
+
+    sickle pe -f I894_S90.scythe.R1.fastq -r I894_S90.scythe.R2.fastq -o I894_S90.sickle.R1.fastq -p I894_S90.sickle.R2.fastq -s I894_S90.singles.fastq -t sanger
+
+This will take about 5 minutes to run. If you look through the output files, you will see reads trimmed for low quality. Sickle produces three files, two paired-end quality trimmed files, and a singles file where reads are kept where only one of the pair passed the thresholds. Sickle will output information about how many records it started with and how many were kept/discarded.
+
+---
+
+**12\.** We have run through adapter & quality trimming for one pair of files, but now we need to do it for all the files. For that we will be using the power of our cluster. You'll need to logout of your compute node and get back to the head node (cabernet). You'll need to download three files
