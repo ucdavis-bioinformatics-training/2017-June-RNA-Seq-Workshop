@@ -40,6 +40,19 @@ So the script takes "I892_S88" and puts it into the variable "$1". We then copy 
 
 Now, after the variable section, we load the modules that we will be using for this job. Finally, we run the actual commands using the variable names we created earlier. "${sample}" gets replaced with the actual sample name when it runs. And then at the end we calculate and print out the elapsed time.
 
+The stderr and stdout streams for each job get captured to files that use the job ID in the filename and typically end in ".err" and ".out". These files will be created in the directory that the script is run, unless otherwise specified.
+
 ---
 
-**4\.** There are some more commands that 
+**4\.** There are some more commands that are useful to know in Slurm... 'squeue', 'scancel', and 'sacct'. 'squeue' (without any arguments) gives you a list of all the jobs currently running on the cluster:
+
+    squeue
+    squeue --help
+
+Looking at the help documentation, we see that we can filter the results based on a number of criteria. The most useful option is "-u", which you can use to see just the jobs for a particular user ID. The first column gives you the job ID of the job, the second is the partition (different queues for different types of machines), the name of the job, the user who ran the job, the state of the job (R is for running), the length of time the job has been running, the number of nodes the job is using, and finally, the node name where the job is running or a reason why the job is waiting.
+
+The 'scancel' command is used to cancel jobs (either running or waiting). You can give it a job ID, or if you use the "-u" option with your username, you can cancel all of your jobs at once.
+
+The 'sacct' command is used to get accounting data for any job that has ever run, using the job ID.
+
+You can get more information about each command by typing "<command> --help" or by looking at [this summary page](https://slurm.schedmd.com/pdfs/summary.pdf).
