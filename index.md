@@ -35,7 +35,7 @@ Thursday
 
 * Intro to R
 * Differential Gene Expression Statistics (talk)
-* DE Analysis (counts to lists of DE genes), Models and Contrasts
+* DE Analysis (counts to lists of DE genes)
 
 
 Friday
