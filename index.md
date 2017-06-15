@@ -41,7 +41,7 @@ Thursday
 Friday
 =======
 
-* GO/Pathway Enrichment
+* GO/KEGG Pathway Enrichment
 * Single Cell RNA-Seq (talk)
 * Generating figures
 * Transript Assembly/Annotation (talk)
