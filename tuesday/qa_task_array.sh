@@ -4,7 +4,7 @@
 #SBATCH --job-name=rRNA # Job name
 #SBATCH --nodes=1
 #SBATCH --time=600
-#SBATCH --mem=2000 # Memory pool for all cores (see also --mem-per-cpu)
+#SBATCH --mem=3000 # Memory pool for all cores (see also --mem-per-cpu)
 #SBATCH --output=arrayJob_%A_%a.out # File to which STDOUT will be written
 #SBATCH --error=arrayJob_%A_%a.err # File to which STDERR will be written
 #SBATCH --reservation=workshop

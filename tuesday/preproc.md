@@ -119,4 +119,30 @@ This will take about 5 minutes to run. If you look through the output files, you
 
 ---
 
-**12\.** We have run through adapter & quality trimming for one pair of files, but now we need to do it for all the files. For that we will be using the power of our cluster. You'll need to logout of your compute node and get back to the head node (cabernet). You'll need to download three files
+**12\.** We have run through adapter & quality trimming for one pair of files, but now we need to do it for all the files. For that we will be using the power of our cluster. You'll need to logout of your compute node and get back to the head node (cabernet). You'll need to download two cluster scripts [qa_task_array.sh](tuesday/qa_task_array.sh) and [qa_for_loop.sh](tuesday/qa_for_loop.sh) :
+
+    wget https://ucdavis-bioinformatics-training.github.io/2017-June-RNA-Seq-Workshop/tuesday/qa_task_array.sh
+    wget https://ucdavis-bioinformatics-training.github.io/2017-June-RNA-Seq-Workshop/tuesday/qa_for_loop.sh
+    
+We will also need to generate a file called 'samples.txt' that contains all the sample IDs. We will extract this information from the filenames using 'cut'. First, get a listing of all the R1 files:
+
+    ls -1 *R1*.fastq.gz
+
+We will pipe this output to 'cut' to get the fields we want. Give cut the options "-d" with an underscore (usually above the minus sign on a keyboard) as the parameter, and the "-f" option with "1,2" as the parameter in order to get the first and second fields:
+
+    ls -1 *R1*.fastq.gz | cut -d_ -f1,2
+
+This gives us the all the sample IDs. Now we just need to redirect that output to a file:
+
+    ls -1 *R1*.fastq.gz | cut -d_ -f1,2 > samples.txt
+
+Use 'cat' to view the contents of the file to make sure it looks right:
+
+    cat samples.txt
+
+---
+
+**13\.** There are many different ways to run jobs on the cluster and on the command-line... we are going to talk about two of the ways. Let's take a look at the two scripts we downloaded. The first is a script that uses Slurm task arrays to run all of the sickle and scythe steps per sample. The second is a script that uses a 'for loop' to loop through all of the samples and run the steps serially. This second script can be used when you are running all of your jobs on one machine. Look at the first script:
+
+    cat qa_task_array.sh
+
