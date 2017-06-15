@@ -77,11 +77,12 @@ Looking at the Usage you can see that scythe needs an adapter file and the seque
 
     wget https://ucdavis-bioinformatics-training.github.io/2017-June-RNA-Seq-Workshop/tuesday/adapters.fasta
 
-Now run scythe specifying an output file, the adapters file, and the input file:
+Now run scythe specifying an output file, the adapters file, and the input file. Add an ampersand at the end to run it in the background so that we can run the other file through scythe concurrently:
 
-    scythe -o I894_S90.scythe.R1.fastq -a adapters.fasta I894_S90_L006_R1_001.fastq.gz
+    scythe -o I894_S90.scythe.R1.fastq -a adapters.fasta I894_S90_L006_R1_001.fastq.gz &
+    scythe -o I894_S90.scythe.R2.fastq -a adapters.fasta I894_S90_L006_R2_001.fastq.gz &
 
-This will take approximately 5 minutes to run.
+This will take approximately 5 minutes to run. You can use the 'top' or 'jobs' commands to monitor the jobs. When the jobs finish, you will have two files that are adapter trimmed.
 
 ---
 
@@ -97,15 +98,7 @@ If you scroll through the data (using the spacebar), you will see that some of t
 
 ---
 
-**10\.** We need to run scythe on the reverse reads for that sample as well:
-
-    scythe -o I894_S90.scythe.R2.fastq -a adapters.fasta I894_S90_L006_R2_001.fastq.gz
-
-You should now have two files that have been adapter trimmed.
-
----
-
-**11\.** Now we will trim for low quality using a program called 'sickle' (also developed at the Core). First, load the module and type 'sickle' by itself to get the usage, and then 'sickle pe' to get the usage for paired-end reads.
+**10\.** Now we will trim for low quality using a program called 'sickle' (also developed at the Core). First, load the module and type 'sickle' by itself to get the usage, and then 'sickle pe' to get the usage for paired-end reads.
 
     module load sickle
     sickle
@@ -119,7 +112,7 @@ This will take about 5 minutes to run. If you look through the output files, you
 
 ---
 
-**12\.** We have run through adapter & quality trimming for one pair of files, but now we need to do it for all the files. For that we will be using the power of our cluster. You'll need to logout of your compute node and get back to the head node (cabernet). You'll need to download two cluster scripts [qa_task_array.sh](qa_task_array.sh) and [qa_for_loop.sh](qa_for_loop.sh) :
+**11\.** We have run through adapter & quality trimming for one pair of files, but now we need to do it for all the files. For that we will be using the power of our cluster. You'll need to logout of your compute node and get back to the head node (cabernet). You'll need to download two cluster scripts [qa_task_array.sh](qa_task_array.sh) and [qa_for_loop.sh](qa_for_loop.sh) :
 
     wget https://ucdavis-bioinformatics-training.github.io/2017-June-RNA-Seq-Workshop/tuesday/qa_task_array.sh
     wget https://ucdavis-bioinformatics-training.github.io/2017-June-RNA-Seq-Workshop/tuesday/qa_for_loop.sh
@@ -142,9 +135,32 @@ Use 'cat' to view the contents of the file to make sure it looks right:
 
 ---
 
-**13\.** There are many different ways to run jobs on the cluster and on the command-line... we are going to talk about two of the ways. Let's take a look at the two scripts we downloaded. The first is a script that uses Slurm task arrays to run all of the sickle and scythe steps per sample. The second is a script that uses a 'for loop' to loop through all of the samples and run the steps serially. This second script can be used when you are running all of your jobs on one machine. Look at the first script:
+**12\.** There are many different ways to run jobs on the cluster and on the command-line... we are going to talk about two of the ways. Let's take a look at the two scripts we downloaded. The first is a script that uses Slurm task arrays to run all of the sickle and scythe steps per sample. The second is a script that uses a 'for loop' to loop through all of the samples and run the steps serially. This second script can be used when you are running all of your jobs on one machine. Look at the first script:
 
     cat qa_task_array.sh
 
+You will see that it has a few extra sbatch options. The main option to understand is the "--array" option. This option creates a "task array" to run jobs. What that means is that Slurm will run this job however many times specified (in this case, 24) and for every time it runs this script will assign an environment variable called "$SLURM_ARRAY_TASK_ID". This variable will get assigned the number 1 for the first time the script runs, the number 2 the second time the script runs, etc... all the way to 24 (we are using 24 because there are 24 samples). This number is then used as an index into the samples.txt file that you created earlier. The command used to get the sample name is 'sed'. 'sed' is a program that does text editing, but in this case we are using it to get the Nth line of the samples.txt file. So, for example, this command:
 
-chmod a+x qa_task_array.sh
+    sed "5q;d" samples.txt
+
+will return the 5th line of the samples.txt file. We put the command in backticks (usually below the tilde on a keyboard) which tells the script to run the command and put the output into the 'sample' variable. And instead of "5", we use the $SLURM_ARRAY_TASK_ID variable that will change for every run of the script. So, in effect, what happens is that the script gets run 24 times and each time the $SLURM_ARRAY_TASK_ID variable is assigned a new number, which is then used to get the sample ID from the samples.txt file.
+
+---
+
+**13\.** Take a look at the other script:
+
+    cat qa_for_loop.sh
+
+This script has similar commands, but instead of using a task array, it is using a for loop. So this will loop through all the IDs in samples.txt and assign a new ID on every iteration of the loop. You should use this script if you will be running jobs NOT on a cluster, but on a single machine.
+
+---
+
+**14\.** However, since we ARE running on a cluster we will use the first script to run all our jobs. Now, this step will take many hours to run, so you should probably only run it at the end of the day. First, make sure the script is executable:
+
+    chmod a+x qa_task_array.sh
+    
+Now, since we have already set up the task array to run, all we need to do is run the script:
+
+    sbatch qa_task_array.sh
+
+Now you can use 'squeue' to make sure your jobs are queued properly. Now, all you have to do is wait.
