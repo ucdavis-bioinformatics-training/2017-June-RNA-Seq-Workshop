@@ -1,3 +1,3 @@
 DE Analysis
 ==============
-![DE Analysis](Differential_Expression_Analysis.pdf)
+![Talk on DE Analysis](Differential_Expression_Analysis.pdf)
