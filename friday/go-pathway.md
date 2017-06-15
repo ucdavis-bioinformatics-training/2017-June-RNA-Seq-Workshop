@@ -1,3 +1,3 @@
 GO/Pathway Enrichment
 ========================
-![Tests Used in Enrichment Analysis (Talk)](Some Statistical Tests Used in Enrichment Analysis.pdf)
+![Tests Used in Enrichment Analysis (Talk)](Some%20%Statistical%20%STests%20%SUsed%20%Sin%20%SEnrichment%20%SAnalysis.pdf)
