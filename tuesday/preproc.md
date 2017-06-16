@@ -68,6 +68,20 @@ Now you should see a long listing of all the links you just created.
 
 ---
 
+**8\.** Before we do any trimming, let's run a quality control check on one of the files. To do this, we will use a piece of software called 'FastQC'. Load the module and check out the usage & options:
+
+    module load fastqc
+    fastqc -h
+
+FastQC creates html output that has graphics with quality control analysis. You'll need to create an output directory first and then run fastqc:
+
+    mkdir fastqc_out
+    fastqc -t 6 -o fastqc_out I894_S90_L006_R1_001.fastq.gz
+
+When that is done, you will need to download the fastqc_out directory to your laptop and then use a browser look at the html file in it. We will go over the contents of the output in class.
+
+---
+
 **8\.** Now, we will use software called 'scythe' (developed at the UC Davis Bioinformatics Core) to do adapter trimming. First we will run it on just one pair of files. First, load the module, and then type 'scythe' with no arguments to see the options.
 
     module load scythe
