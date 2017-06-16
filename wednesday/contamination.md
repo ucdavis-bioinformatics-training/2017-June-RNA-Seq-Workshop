@@ -6,6 +6,8 @@ Checking for contaminants
     cd ~/rnaseq_example
     mkdir 02-QA
 
+---
+
 **2\.** Go into that directory (make sure your prompt shows that you are in the 02-QA directory) and link to all of the files you will be using:
 
     cd 02-QA
@@ -13,6 +15,8 @@ Checking for contaminants
     ls -l
 
 Now you should see a long listing of all the links you just created.
+
+---
 
 **3\.** Now we want to check for phiX and rRNA contamination. In order to do that we need to download the PhiX genome and Arabidopsis ribosomal RNA. And while we're at it, let's download the Arabidopsis genome as well. First, make a directory called 'ref' and go into it. 
 
