@@ -24,6 +24,7 @@ Wednesday
 ==========
 
 * Differences Between Aligners
+* [Contamination detection](wednesday/contamination)
 * Aligning Data
 * Tag-Seq vs. RNA-Seq (talk)
 * Alignment to Counts and MDS Plots
