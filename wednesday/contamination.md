@@ -24,11 +24,7 @@ Now you should see a long listing of all the links you just created.
     mkdir ref
     cd ref
 
-Then, go to the [Illumina iGenomes site](https://support.illumina.com/sequencing/sequencing_software/igenome.html). We want to download the NCBI TAIR10 Arabidopsis file and the PhiX Illumina RTA file to our 'ref' directory. In order to do that, we will use the 'wget' command. Right click (or whatever is right for your laptop) on the link for Arabidopsis and choose "Copy Link Location" (or something similar). Then use wget to pull down the archive files:
-
-    wget ftp://igenome:G3nom3s4u@ussd-ftp.illumina.com/Arabidopsis_thaliana/NCBI/TAIR10/Arabidopsis_thaliana_NCBI_TAIR10.tar.gz
-
-Do the same for PhiX:
+Then, go to the [Illumina iGenomes site](https://support.illumina.com/sequencing/sequencing_software/igenome.html). We want to download the PhiX Illumina RTA file to our 'ref' directory. In order to do that, we will use the 'wget' command. Right click (or whatever is right for your laptop) on the link for PhiX and choose "Copy Link Location" (or something similar). Then use wget to pull down the archive files:
 
     wget ftp://igenome:G3nom3s4u@ussd-ftp.illumina.com/PhiX/Illumina/RTA/PhiX_Illumina_RTA.tar.gz
 
@@ -40,13 +36,9 @@ Do the same for PhiX:
 
 You will see that 'tar' has many options... we will be using the "-x", "-v", "-z", and "-f" options, which are used for extraction, verbose information output, unzipping the file, and giving the filename, respectively. Type "q" to exit this screen.
 
-    tar -x -v -z -f Arabidopsis_thaliana_NCBI_TAIR10.tar.gz
-
-Do the same for PhiX:
-
     tar -x -v -z -f PhiX_Illumina_RTA.tar.gz
     
-Explore the directories that you've just created. You'll find annotation and indexed sequence for some popular alignment programs.
+Explore the directory that you've just created. You'll find annotation and indexed sequence for some popular alignment programs.
 
 ---
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH --array=1-24  # NEED TO CHANGE THIS!
-#SBATCH --job-name=rRNA # Job name
+#SBATCH --job-name=trim # Job name
 #SBATCH --nodes=1
 #SBATCH --time=600
 #SBATCH --mem=2000 # Memory pool for all cores (see also --mem-per-cpu)
@@ -22,8 +22,8 @@ R2=${sample}_L006_R2_001.fastq.gz
 module load scythe
 module load sickle
 
-scythe -a adap.fasta -q sanger -o ${sample}.scythe.R1.fastq $R1
-scythe -a adap.fasta -q sanger -o ${sample}.scythe.R2.fastq $R2
+scythe -a adapters.fasta -q sanger -o ${sample}.scythe.R1.fastq $R1
+scythe -a adapters.fasta -q sanger -o ${sample}.scythe.R2.fastq $R2
 sickle pe -f ${sample}.scythe.R1.fastq -r ${sample}.scythe.R2.fastq -t sanger -o ${sample}.sickle.R1.fastq -p ${sample}.sickle.R2.fastq -s ${sample}.singles.fastq
 
 end=`date +%s`
