@@ -1,5 +1,5 @@
-Running jobs on the cluster
-=============================
+Running jobs on the cluster and using modules
+===============================================
 
 **1\.** Here at the UC Davis Bioinformatics Core we have a large computational cluster (named cabernet) that we use for our analyses. The job scheduling system we use on this cluster is called [Slurm](https://slurm.schedmd.com/). In this section, we will go through examples of the commands we will be using to interact with the cluster. First, what is a cluster?
 
