@@ -88,7 +88,13 @@ You'll see that the directory for scythe has been added to PATH.
 
 ---
 
-**6\.** A few more module sub-commands that are useful:
+**6\.** You can also load older versions of software. When you load a module without specifying a version, it will load the default (generally the latest) version. If you need an older version, you need to add the version number:
+
+    module load bwa/0.6.2
+
+---
+
+**7\.** A few more module sub-commands that are useful:
 
     module purge
 
@@ -96,7 +102,7 @@ You'll see that the directory for scythe has been added to PATH.
 
     echo $PATH
 
-The scythe directory is gone.
+The scythe and bwa directories are gone.
 
     module load scythe
     module rm scythe
