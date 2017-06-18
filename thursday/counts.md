@@ -34,7 +34,7 @@ Now, C61_S67_ReadsPerGene.out.tab.count contains a single column of data... coun
 
     for x in *_star_alignment/*ReadsPerGene.out.tab; do echo $x; done
 
-This command takes all the files that we listed in step 1 and loops through them, one by one, and for every iteration, assigns the filename to the '$x' variable. Also, for every iteration, it runs whatever commands are between the 'do' and 'done'.... and every iteration the value of '$x' changes. The 'echo' command just prints the value of $x to the screen... in this case just the filename. However, instead, we could actually do our previously created command, but with $x instead of the filename:
+This command takes all the files that we listed in step 1 and loops through them, one by one, and for every iteration, assigns the filename to the '$x' variable. Also, for every iteration, it runs whatever commands are between the 'do' and 'done'.... and every iteration the value of '$x' changes. The semi-colons separate the parts of the loop. The 'echo' command just prints the value of $x to the screen... in this case just the filename. However, instead, we will use our previously created command, but with $x instead of the filename:
 
     for x in *_star_alignment/*ReadsPerGene.out.tab; do tail -n +5 $x | cut -f4 > $x.count; done
 
