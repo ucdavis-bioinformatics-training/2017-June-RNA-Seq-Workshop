@@ -29,6 +29,6 @@ For Windows - Copying files
 1. Open up WinSCP. If you haven't installed it, get WinSCP [here](https://winscp.net/eng/download.php).
 2. In the Host Name field, type **cabernet.genomecenter.ucdavis.edu**
 2. Type in your username and password.
-3. Make sure the File Protocol is SSH.
+3. Make sure the File Protocol is SFTP.
 4. Press "Login".
 
