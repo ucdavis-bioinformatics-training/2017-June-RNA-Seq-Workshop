@@ -1,7 +1,7 @@
 Monday
 =======
 
-* Introductions
+* [Introduction](monday/Introduction.pdf)
 * [Logging In](monday/logging-in)
 * [Intro to command-line](monday/intro)
 * [Advanced command-line](monday/advanced-command-line)
