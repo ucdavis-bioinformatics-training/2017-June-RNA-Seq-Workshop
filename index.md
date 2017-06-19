@@ -3,7 +3,7 @@ Monday
 
 * Introductions
 * Logging on
-* Intro to command-line
+* [Intro to command-line](monday/intro)
 * Advanced command-line
 * What is Bioinformatics? (talk)
 * Hardware/Software considerations (talk)
