@@ -4,7 +4,7 @@ Monday
 * Introductions
 * Logging on
 * [Intro to command-line](monday/intro)
-* Advanced command-line
+* [Advanced command-line](monday/advanced-command-line)
 * What is Bioinformatics? (talk)
 * Hardware/Software considerations (talk)
 * [Running jobs on the Cluster and using modules](monday/cluster)
