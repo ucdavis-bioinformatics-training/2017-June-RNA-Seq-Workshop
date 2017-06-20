@@ -12,20 +12,20 @@ Monday
 Tuesday
 =======
 
-* Intro to Sequencing (talk)
+* [Experimental Design and Cost Estimation](tuesday/ExperimentalDesign.pdf) (talk)
 * [Files and Filetypes for RNA-Seq](tuesday/filetypes.md)
-* Experimental Design and Cost Estimation (talk)
 * Preprocessing Data
 * [Preprocessing Data hands-on](tuesday/preproc)
+* Tag-Seq vs. RNA-Seq (talk)
 
 
 Wednesday
 ==========
 
+* Intro to Sequencing (talk)
 * Differences Between Aligners
 * [Contamination detection](wednesday/contamination)
 * [Aligning Data and IGV](wednesday/alignment)
-* Tag-Seq vs. RNA-Seq (talk)
 * Alignment to Counts and MDS Plots
 * Bacterial RNA-Seq (talk)
 
