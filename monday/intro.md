@@ -16,7 +16,7 @@ Multi-line ommands from slides:
     wget --no-check-certificate ftp://igenome:G3nom3s4u@ussd-ftp.illumina.com/PhiX/Illumina/RTA/PhiX_Illumina_RTA.tar.gz
     curl -k https://bioshare.bioinformatics.ucdavis.edu/bioshare/download/pdhqicmfgw2bra8/variant.neighborhoods.fa > regions.fa
    
-    grep “>” regions.fa | cut -c 2-
+    grep ">" regions.fa | cut -c 2-
     grep ">" regions.fa | cut -c 2- | cut -f1 -d:
     grep ">" regions.fa | cut -c 2- | cut -f1 -d: | sort
     grep ">" regions.fa | cut -c 2- | cut -f1 -d: | sort | uniq -c
@@ -26,7 +26,7 @@ Multi-line ommands from slides:
     
     bwa mem genome.fa regions.fa 1> aln.sam 2> aln.err
 
-    grep “>” regions.fa | cut -c2- | while read header; do echo “contig_$header” >> b; done
+    grep ">" regions.fa | cut -c2- | while read header; do echo "contig_$header" >> b; done
 
 
 
