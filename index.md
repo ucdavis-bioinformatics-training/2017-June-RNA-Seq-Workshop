@@ -13,7 +13,7 @@ Tuesday
 =======
 
 * Intro to Sequencing (talk)
-* Files and Filetypes for Genomes/Transcriptomes/Annotation
+* [Files and Filetypes for RNA-Seq](tuesday/filetypes.md)
 * Experimental Design and Cost Estimation (talk)
 * Preprocessing Data
 * [Preprocessing Data hands-on](tuesday/preproc)
