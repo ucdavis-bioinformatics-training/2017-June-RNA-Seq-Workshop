@@ -17,15 +17,15 @@ Tuesday
 * [Workshop dataset,Emily Rustad](tuesday/Emily-RNA-seq_data.pdf)
 * [Philosophy of Preprocessing Data](tuesday/Preprocessing.pdf) (talk)
 * [Preprocessing Data hands-on](tuesday/preproc)
-* Tag-Seq vs. RNA-Seq (talk)
 
 
 Wednesday
 ==========
 
-* Intro to Sequencing (talk)
+* Intro to Sequencing, Lutz Froenicke (talk)
 * [Aligners](wednesday/aligners) (talk)
 * [Contamination detection](wednesday/contamination)
+* [Tag-Seq vs. RNA-Seq (talk)](wednesday/TagSeqVSRnaSeq.pdf)
 * [Aligning Data and IGV](wednesday/alignment)
 * Alignment to Counts and MDS Plots
 * Bacterial RNA-Seq (talk)
