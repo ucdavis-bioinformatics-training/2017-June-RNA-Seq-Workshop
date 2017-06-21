@@ -12,10 +12,10 @@ Monday
 Tuesday
 =======
 
-* [Files and Filetypes for RNA-Seq](tuesday/filetypes)
+* [Files and Filetypes for RNA-Seq](tuesday/filetypes) (talk)
 * [Experimental Design and Cost Estimation](tuesday/ExperimentalDesign.pdf) (talk)
 * [Workshop dataset,Emily Rustad](tuesday/Emily-RNA-seq_data.pdf)
-* [Philosophy of Preprocessing Data](tuesday/Preprocessing.pdf)
+* [Philosophy of Preprocessing Data](tuesday/Preprocessing.pdf) (talk)
 * [Preprocessing Data hands-on](tuesday/preproc)
 * Tag-Seq vs. RNA-Seq (talk)
 
@@ -24,7 +24,7 @@ Wednesday
 ==========
 
 * Intro to Sequencing (talk)
-* [Aligners](wednesday/aligners)
+* [Aligners](wednesday/aligners) (talk)
 * [Contamination detection](wednesday/contamination)
 * [Aligning Data and IGV](wednesday/alignment)
 * Alignment to Counts and MDS Plots
