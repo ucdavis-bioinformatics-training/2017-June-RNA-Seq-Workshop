@@ -16,7 +16,7 @@ where '[class#]' is replaced with your username. Press Enter.
 For Macs/Linux - Transferring files
 ------------------------------------
 
-1. Use scp:
+1. Use scp (secure copy, a remote file copying program):
 
     scp [class#]@cabernet.genomecenter.ucdavis.edu:[path to file] .
 
