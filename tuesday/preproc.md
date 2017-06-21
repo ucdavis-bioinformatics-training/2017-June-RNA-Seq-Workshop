@@ -82,7 +82,7 @@ When that is done, you will need to download the fastqc_out directory to your la
 
 ---
 
-**8\.** Now, we will use software called 'scythe' (developed at the UC Davis Bioinformatics Core) to do adapter trimming. First we will run it on just one pair of files. First, load the module, and then type 'scythe' with no arguments to see the options.
+**9\.** Now, we will use software called 'scythe' (developed at the UC Davis Bioinformatics Core) to do adapter trimming. First we will run it on just one pair of files. First, load the module, and then type 'scythe' with no arguments to see the options.
 
     module load scythe
     scythe
@@ -100,7 +100,7 @@ This will take approximately 5 minutes to run. You can use the 'top' or 'jobs' c
 
 ---
 
-**9\.** Once that is done, let's take a look at the differences between the input and output files. First look at the input file:
+**10\.** Once that is done, let's take a look at the differences between the input and output files. First look at the input file:
 
     zless I894_S90_L006_R1_001.fastq.gz
 
@@ -112,7 +112,7 @@ If you scroll through the data (using the spacebar), you will see that some of t
 
 ---
 
-**10\.** Now we will trim for low quality using a program called 'sickle' (also developed at the Core). First, load the module and type 'sickle' by itself to get the usage, and then 'sickle pe' to get the usage for paired-end reads.
+**11\.** Now we will trim for low quality using a program called 'sickle' (also developed at the Core). First, load the module and type 'sickle' by itself to get the usage, and then 'sickle pe' to get the usage for paired-end reads.
 
     module load sickle
     sickle
@@ -126,7 +126,7 @@ This will take about 5 minutes to run. If you look through the output files, you
 
 ---
 
-**11\.** We have run through adapter & quality trimming for one pair of files, but now we need to do it for all the files. For that we will be using the power of our cluster. You'll need to logout of your compute node and get back to the head node (cabernet). You'll need to download two cluster scripts [qa_task_array.sh](qa_task_array.sh) and [qa_for_loop.sh](qa_for_loop.sh) :
+**12\.** We have run through adapter & quality trimming for one pair of files, but now we need to do it for all the files. For that we will be using the power of our cluster. You'll need to logout of your compute node and get back to the head node (cabernet). You'll need to download two cluster scripts [qa_task_array.sh](qa_task_array.sh) and [qa_for_loop.sh](qa_for_loop.sh) :
 
     wget https://ucdavis-bioinformatics-training.github.io/2017-June-RNA-Seq-Workshop/tuesday/qa_task_array.sh
     wget https://ucdavis-bioinformatics-training.github.io/2017-June-RNA-Seq-Workshop/tuesday/qa_for_loop.sh
@@ -149,7 +149,7 @@ Use 'cat' to view the contents of the file to make sure it looks right:
 
 ---
 
-**12\.** There are many different ways to run jobs on the cluster and on the command-line... we are going to talk about two of the ways. Let's take a look at the two scripts we downloaded. The first is a script that uses Slurm task arrays to run all of the sickle and scythe steps per sample. The second is a script that uses a 'for loop' to loop through all of the samples and run the steps serially. This second script can be used when you are running all of your jobs on one machine. Look at the first script:
+**13\.** There are many different ways to run jobs on the cluster and on the command-line... we are going to talk about two of the ways. Let's take a look at the two scripts we downloaded. The first is a script that uses Slurm task arrays to run all of the sickle and scythe steps per sample. The second is a script that uses a 'for loop' to loop through all of the samples and run the steps serially. This second script can be used when you are running all of your jobs on one machine. Look at the first script:
 
     cat qa_task_array.sh
 
@@ -161,7 +161,7 @@ will return the 5th line of the samples.txt file. We put the command in backtick
 
 ---
 
-**13\.** Take a look at the other script:
+**14\.** Take a look at the other script:
 
     cat qa_for_loop.sh
 
@@ -169,7 +169,7 @@ This script has similar commands, but instead of using a task array, it is using
 
 ---
 
-**14\.** However, since we ARE running on a cluster we will use the first script to run all our jobs. Now, this step will take many hours to run, so you should probably only run it at the end of the day. First, make sure the script is executable:
+**15\.** However, since we ARE running on a cluster we will use the first script to run all our jobs. Now, this step will take many hours to run, so you should probably only run it at the end of the day. First, make sure the script is executable:
 
     chmod a+x qa_task_array.sh
     
