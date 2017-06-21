@@ -3,7 +3,7 @@
 #SBATCH --array=1-24  # NEED TO CHANGE THIS!
 #SBATCH --job-name=star # Job name
 #SBATCH --nodes=1
-#SBATCH --ntasks=4
+#SBATCH --cpus-per-task=4
 #SBATCH --time=360
 #SBATCH --mem=7000 # Memory pool for all cores (see also --mem-per-cpu)
 #SBATCH --output=arrayJob_%A_%a.out # File to which STDOUT will be written
