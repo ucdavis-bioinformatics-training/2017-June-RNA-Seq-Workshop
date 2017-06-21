@@ -73,9 +73,10 @@ This step will take 5 minutes. You can look at the [STAR documentation](https://
 
 ---
 
-**3\.** We are now ready to try an alignment of one of our samples' reads. Let's go back to our 03-alignment directory.
+**3\.** We are now ready to try an alignment of one of our samples' reads. Let's go back to our 03-alignment directory and make an output directory for STAR:
 
     cd ../03-alignment
+    mkdir I864_S78_star_alignment
 
 and let's run STAR on just one pair of files. Make sure you run this on a compute node using 8Gb of memory. It will take about 30 minutes to run (**Again, the command is on multiple lines for readability**):
 
