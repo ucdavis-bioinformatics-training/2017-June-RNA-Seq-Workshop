@@ -13,7 +13,7 @@ Tuesday
 =======
 
 * Intro to Sequencing (talk)
-* [Files and Filetypes for RNA-Seq](tuesday/filetypes.md)
+* [Files and Filetypes for RNA-Seq](tuesday/filetypes)
 * Experimental Design and Cost Estimation (talk)
 * Preprocessing Data
 * [Preprocessing Data hands-on](tuesday/preproc)
@@ -22,7 +22,7 @@ Tuesday
 Wednesday
 ==========
 
-* Differences Between Aligners
+* [Aligners](wednesday/aligners)
 * [Contamination detection](wednesday/contamination)
 * [Aligning Data and IGV](wednesday/alignment)
 * Tag-Seq vs. RNA-Seq (talk)
