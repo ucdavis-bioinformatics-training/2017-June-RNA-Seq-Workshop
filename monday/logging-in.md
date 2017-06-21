@@ -18,9 +18,9 @@ For Macs/Linux - Transferring files
 
 1. Use scp (secure copy, a remote file copying program):
 
-    scp [class#]@cabernet.genomecenter.ucdavis.edu:[path to file] .
+    scp [class#]@cabernet.genomecenter.ucdavis.edu:[full path to file] .
 
-Replace '[class#]' with your username and replace '[path to file]' with the path to the file you want to transfer. Note that there is a "." at the end of the command, which is where to put the file, i.e. your current directory. You will have to type in your password.
+Replace '[class#]' with your username and replace '[full path to file]' with the full path to the file you want to transfer. Note that there is a "." at the end of the command, which is where to put the file, i.e. your current directory. You will have to type in your password.
 
 For Windows - Logging In
 -------------------------
