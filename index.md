@@ -2,7 +2,7 @@ Monday
 =======
 
 * [Introduction](monday/Introduction.pdf)
-* [Logging In](monday/logging-in)
+* [Logging In and transferring files](monday/logging-in)
 * [Intro to command-line](monday/intro)
 * [Advanced command-line](monday/advanced-command-line)
 * [What is Bioinformatics?](monday/What_is_Bioinformatics.pdf) (talk)
