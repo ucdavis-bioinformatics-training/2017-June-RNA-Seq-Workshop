@@ -8,7 +8,7 @@ jnfass@ucdavis.edu
 
 Download the slides [here](CLIntro.pdf)
 
-Multi-line ommands from slides:
+Multi-line commands from slides:
 --------------------------------
 
     srun -t 1440 -n 1 --mem 8000 --reservation workshop --pty /bin/bash
