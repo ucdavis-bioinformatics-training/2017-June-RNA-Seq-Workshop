@@ -2,7 +2,7 @@ Monday
 =======
 
 * [Introduction](monday/Introduction.pdf)
-* [Logging In](monday/logging-in)
+* [Logging In and transferring files](monday/logging-in)
 * [Intro to command-line](monday/intro)
 * [Advanced command-line](monday/advanced-command-line)
 * [What is Bioinformatics?](monday/What_is_Bioinformatics.pdf) (talk)
@@ -12,20 +12,21 @@ Monday
 Tuesday
 =======
 
-* Intro to Sequencing (talk)
 * [Files and Filetypes for RNA-Seq](tuesday/filetypes)
-* Experimental Design and Cost Estimation (talk)
-* Preprocessing Data
+* [Experimental Design and Cost Estimation](tuesday/ExperimentalDesign.pdf) (talk)
+* [Workshop dataset,Emily Rustad](tuesday/Emily-RNA-seq_data.pdf)
+* [Philosophy of Preprocessing Data](tuesday/Preprocessing.pdf)
 * [Preprocessing Data hands-on](tuesday/preproc)
+* Tag-Seq vs. RNA-Seq (talk)
 
 
 Wednesday
 ==========
 
+* Intro to Sequencing (talk)
 * [Aligners](wednesday/aligners)
 * [Contamination detection](wednesday/contamination)
 * [Aligning Data and IGV](wednesday/alignment)
-* Tag-Seq vs. RNA-Seq (talk)
 * Alignment to Counts and MDS Plots
 * Bacterial RNA-Seq (talk)
 

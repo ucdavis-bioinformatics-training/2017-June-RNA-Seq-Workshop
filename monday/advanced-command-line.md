@@ -15,11 +15,11 @@ Advanced Command-Line
 
     module load sickle scythe
     wget https://ucdavis-bioinformatics-training.github.io/2017-June-RNA-Seq-Workshop/tuesday/adapters.fasta
-    zcat C61_S67_L006_R1_001.fastq.gz | head -400000 > r1.fa
-    sickle se -f <(scythe -a adapters.fasta r1.fa) -t sanger -o trimmed.fa
+    zcat C61_S67_L006_R1_001.fastq.gz | head -400000 > r1.fq
+    sickle se -f <(scythe -a adapters.fasta r1.fq) -t sanger -o trimmed.fa
 
-    zcat C61_S67_L006_R2_001.fastq.gz | head -400000 > r2.fa
-    sickle pe -f <(scythe -a adapters.fasta r1.fa) -r <(scythe -a adapters.fasta r2.fa) -t sanger -o trimmed1.fa -p trimmed2.fa -s single.fa
+    zcat C61_S67_L006_R2_001.fastq.gz | head -400000 > r2.fq
+    sickle pe -f <(scythe -a adapters.fasta r1.fq) -r <(scythe -a adapters.fasta r2.fq) -t sanger -o trimmed1.fa -p trimmed2.fa -s single.fa
 
 ---
 
