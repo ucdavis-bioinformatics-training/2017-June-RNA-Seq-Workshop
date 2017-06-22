@@ -26,6 +26,10 @@ is_female
 # assign logical value "FALSE" to variable is_male
 is_male <- FALSE
 is_male
+# assign logical value to a variable by a logical operation
+age <- 20
+is_adult <- age > 18
+is_adult
 
 #To find out the type of variable.
 class(is_female)
