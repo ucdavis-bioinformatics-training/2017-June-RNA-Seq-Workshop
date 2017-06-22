@@ -87,5 +87,5 @@ NOTE: Workaround for working with a symbolically linked 03-alignments directory:
 We take the samples.txt file, cut out the first column where the delimiter is the underscore character, then pipe that to the 'paste' command with the '-s' option, which takes a column of values and transposes them into a row. And finally, let's put everything together:
 
     cat header.txt tmp.out > all_counts.txt
-
+    
 And now you have a raw counts file that has a count for every gene, per sample. You will use this file for the next step, which is analysis in R.
