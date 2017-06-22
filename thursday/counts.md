@@ -40,6 +40,16 @@ This command takes all the files that we listed in step 1 and loops through them
 
 After this command, all of the STAR directories should have a ReadsPerGene.out.tab.count file.
 
+NOTE: Workaround for using a symbolically linked 03-alignment directory:
+
+    cd ../    # make sure you're in the dir above 03-alignment
+    mkdir 04-Counts
+    for x in 03-alignment/*/*ReadsPerGene.out.tab; do \
+        s=`basename $x | cut -f1 -d_`
+        echo $s
+        cat $x | tail -n +5 | cut -f4 > 04-Counts/$s.count
+    done
+
 ---
 
 **4\.** Next, we need to get the columns for the final table. Because all of these files are sorted in the exact same order (by gene ID), we can just use the columns from any of the files:
@@ -47,10 +57,18 @@ After this command, all of the STAR directories should have a ReadsPerGene.out.t
     tail -n +5 C61_S67_star_alignment/C61_S67_ReadsPerGene.out.tab | cut -f1 > geneids.txt
     head geneids.txt
 
+NOTE: Workaround for using a symbolically linked 03-alignment directory:
+
+    tail -n +5 03-alignment/C61_S67_star_alignment/C61_S67_ReadsPerGene.out.tab | cut -f1 > geneids.txt
+
 Finally, we want to combine all of these columns together using the 'paste' command, and put it in a temporary file:
 
     paste geneids.txt *_star_alignment/*ReadsPerGene.out.tab.count > tmp.out
     head tmp.out
+
+NOTE: Workaround for working with a symbolically linked 03-alignment directory:
+
+    paste geneids.txt 04-Counts/*.count > tmp.out
 
 ---
 
@@ -58,8 +76,16 @@ Finally, we want to combine all of these columns together using the 'paste' comm
 
     cat samples.txt | cut -d_ -f1 | paste -s > header.txt
 
+NOTE: Workaround for working with a symbolically linked 03-alignment directory:
+
+    for x in 03-alignment/*/*ReadsPerGene.out.tab; do \
+        s=`basename $x | cut -f1 -d_`
+        echo $s
+    done | paste -s > header.txt
+
+
 We take the samples.txt file, cut out the first column where the delimiter is the underscore character, then pipe that to the 'paste' command with the '-s' option, which takes a column of values and transposes them into a row. And finally, let's put everything together:
 
     cat header.txt tmp.out > all_counts.txt
-
+    
 And now you have a raw counts file that has a count for every gene, per sample. You will use this file for the next step, which is analysis in R.

@@ -37,7 +37,7 @@ Thursday
 * Intro to R
 * Differential Gene Expression Statistics (talk)
 * [Alignments to Counts](thursday/counts)
-* DE Analysis (counts to lists of DE genes)
+* [DE Analysis: counts to lists of DE genes](thursday/de-analysis.md)
 
 
 Friday

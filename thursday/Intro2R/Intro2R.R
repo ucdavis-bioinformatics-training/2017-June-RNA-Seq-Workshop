@@ -26,6 +26,10 @@ is_female
 # assign logical value "FALSE" to variable is_male
 is_male <- FALSE
 is_male
+# assign logical value to a variable by a logical operation
+age <- 20
+is_adult <- age > 18
+is_adult
 
 #To find out the type of variable.
 class(is_female)
@@ -282,6 +286,10 @@ data <- read.table(file="raw_counts.txt", sep="\t", header=T, stringsAsFactors=F
 #Take a look at the beginning part of the data frame.
 head(data)
 
+#To read in data from the internet, one can input the file url to read.table() as following:
+read.table(file="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2017-June-RNA-Seq-Workshop/master/thursday/Intro2R/raw_counts.txt", sep="\t", header=T, stringsAsFactors=F)
+
+
 #Depending on the format of the file, several variants of read.table() are available to make reading a file easier.
 
 #read.csv(): for reading "comma separated value" files (.csv).
@@ -355,35 +363,7 @@ x <- rnorm(1000)
 boxplot(x)
 
 
-#Topic 5. Installing packages in R
-#====================================================
-
-#There two ways to install bioconductor packages in R: biocLite(), install.packages()
-
-source("http://bioconductor.org/biocLite.R")
-## install core packages
-biocLite()
-## install specific packages
-biocLite("edgeR")
-biocLite(c("WGCNA", "gplots"))
-```
-
-install.packages("ggplot2", repos="http://cran.us.r-project.org")
-
-# biocLite() is the recommended way to install Bioconductor packages. 
-
-# Bioconductor has a repository and release schedule that differ from R (Bioconductor has a ‘devel’ branch to which new packages and updates are introduced, and a stable ‘release’ branch emitted once every 6 months to which bug fixes but not new features are introduced). This mismatch causes that the version detected by install.packages() is sometimes not the most recent 'release'. 
-
-# A consequence of the distince 'devel' branch is that install.packages() sometimes points only to the 'release' repository, while users might want to have access to the leading-edge features in the develop version. 
-
-# An indirect consequence of Bioconductor's structured release is that packages generally have more extensive dependences with one another.
-
-# To update the installed Bioconductor packages.
-biocLite("BiocUpgrade")
-
-
-
-#Topic 6. lapply(), sapply()
+#Topic 5. lapply(), sapply()
 #====================================================
 
 # lapply() is to apply a given function to every element of a list and obtain a list as results.
@@ -408,3 +388,33 @@ sapply(1:dim(data)[1], function(x){log10(sum(data[x,]))})
 # If the "simplify" parameter is turned off, sapply() will produced exactly the same results as lapply(), in the form of a list. By default, "simplify" is turned on.
 
 sapply(1:dim(data)[1], function(x){log10(sum(data[x,]))}, simplify=FALSE)
+
+
+#Topic 6. Installing packages in R
+#====================================================
+
+#There two ways to install bioconductor packages in R: biocLite(), install.packages()
+
+source("http://bioconductor.org/biocLite.R")
+## install core packages
+biocLite()
+## install specific packages
+biocLite("edgeR")
+biocLite(c("topGO", "org.At.tair.db", "biomaRt", "KEGGREST", "WGCNA", "gplots"))
+
+install.packages("ggplot2", repos="http://cran.us.r-project.org")
+install.packages("locfit", repos="http://cran.us.r-project.org")
+
+# biocLite() is the recommended way to install Bioconductor packages. 
+
+# Bioconductor has a repository and release schedule that differ from R (Bioconductor has a ‘devel’ branch to which new packages and updates are introduced, and a stable ‘release’ branch emitted once every 6 months to which bug fixes but not new features are introduced). This mismatch causes that the version detected by install.packages() is sometimes not the most recent 'release'. 
+
+# A consequence of the distince 'devel' branch is that install.packages() sometimes points only to the 'release' repository, while users might want to have access to the leading-edge features in the develop version. 
+
+# An indirect consequence of Bioconductor's structured release is that packages generally have more extensive dependences with one another.
+
+# To update the installed Bioconductor packages.
+biocLite("BiocUpgrade")
+
+
+
