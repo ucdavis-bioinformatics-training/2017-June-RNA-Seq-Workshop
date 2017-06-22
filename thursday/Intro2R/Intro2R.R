@@ -395,12 +395,11 @@ source("http://bioconductor.org/biocLite.R")
 ## install core packages
 biocLite()
 ## install specific packages
-biocLite("locfit")
 biocLite("edgeR")
 biocLite(c("topGO", "org.At.tair.db", "biomaRt", "KEGGREST", "WGCNA", "gplots"))
-```
 
 install.packages("ggplot2", repos="http://cran.us.r-project.org")
+install.packages("locfit", repos="http://cran.us.r-project.org")
 
 # biocLite() is the recommended way to install Bioconductor packages. 
 
