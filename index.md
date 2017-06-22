@@ -22,7 +22,7 @@ Tuesday
 Wednesday
 ==========
 
-* Intro to Sequencing, Lutz Froenicke (talk)
+* [Intro to Sequencing](wednesday/Bioinformatics_Workshop_2017_RNA_s_o_Sequencing.pdf), Lutz Froenicke (talk)
 * [Aligners](wednesday/aligners) (talk)
 * [Contamination detection](wednesday/contamination)
 * [Tag-Seq vs. RNA-Seq (talk)](wednesday/TagSeqVSRnaSeq.pdf)
