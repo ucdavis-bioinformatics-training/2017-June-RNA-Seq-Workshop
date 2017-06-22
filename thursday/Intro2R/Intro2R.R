@@ -359,7 +359,7 @@ x <- rnorm(1000)
 boxplot(x)
 
 
-#Topic 6. lapply(), sapply()
+#Topic 5. lapply(), sapply()
 #====================================================
 
 # lapply() is to apply a given function to every element of a list and obtain a list as results.
@@ -386,7 +386,7 @@ sapply(1:dim(data)[1], function(x){log10(sum(data[x,]))})
 sapply(1:dim(data)[1], function(x){log10(sum(data[x,]))}, simplify=FALSE)
 
 
-#Topic 5. Installing packages in R
+#Topic 6. Installing packages in R
 #====================================================
 
 #There two ways to install bioconductor packages in R: biocLite(), install.packages()
