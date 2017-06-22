@@ -40,9 +40,9 @@ This command takes all the files that we listed in step 1 and loops through them
 
 After this command, all of the STAR directories should have a ReadsPerGene.out.tab.count file.
 
-NOTE: Workaround for using a symbolically linked 03-alignments directory:
+NOTE: Workaround for using a symbolically linked 03-alignment directory:
 
-    cd ../    # make sure you're in the dir above 03-alignments
+    cd ../    # make sure you're in the dir above 03-alignment
     mkdir 04-Counts
     for x in 03-alignment/*/*ReadsPerGene.out.tab; do \
         s=`basename $x | cut -f1 -d_`
@@ -57,7 +57,7 @@ NOTE: Workaround for using a symbolically linked 03-alignments directory:
     tail -n +5 C61_S67_star_alignment/C61_S67_ReadsPerGene.out.tab | cut -f1 > geneids.txt
     head geneids.txt
 
-NOTE: Workaround for using a symbolically linked 03-alignments directory:
+NOTE: Workaround for using a symbolically linked 03-alignment directory:
 
     tail -n +5 03-alignment/C61_S67_star_alignment/C61_S67_ReadsPerGene.out.tab | cut -f1 > geneids.txt
 
@@ -66,7 +66,7 @@ Finally, we want to combine all of these columns together using the 'paste' comm
     paste geneids.txt *_star_alignment/*ReadsPerGene.out.tab.count > tmp.out
     head tmp.out
 
-NOTE: Workaround for working with a symbolically linked 03-alignments directory:
+NOTE: Workaround for working with a symbolically linked 03-alignment directory:
 
     paste geneids.txt 04-Counts/*.count > tmp.out
 
@@ -76,7 +76,7 @@ NOTE: Workaround for working with a symbolically linked 03-alignments directory:
 
     cat samples.txt | cut -d_ -f1 | paste -s > header.txt
 
-NOTE: Workaround for working with a symbolically linked 03-alignments directory:
+NOTE: Workaround for working with a symbolically linked 03-alignment directory:
 
     for x in 03-alignment/*/*ReadsPerGene.out.tab; do \
         s=`basename $x | cut -f1 -d_`
