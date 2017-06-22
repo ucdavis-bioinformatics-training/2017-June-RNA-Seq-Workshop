@@ -359,34 +359,6 @@ x <- rnorm(1000)
 boxplot(x)
 
 
-#Topic 5. Installing packages in R
-#====================================================
-
-#There two ways to install bioconductor packages in R: biocLite(), install.packages()
-
-source("http://bioconductor.org/biocLite.R")
-## install core packages
-biocLite()
-## install specific packages
-biocLite("edgeR")
-biocLite(c("WGCNA", "gplots"))
-```
-
-install.packages("ggplot2", repos="http://cran.us.r-project.org")
-
-# biocLite() is the recommended way to install Bioconductor packages. 
-
-# Bioconductor has a repository and release schedule that differ from R (Bioconductor has a ‘devel’ branch to which new packages and updates are introduced, and a stable ‘release’ branch emitted once every 6 months to which bug fixes but not new features are introduced). This mismatch causes that the version detected by install.packages() is sometimes not the most recent 'release'. 
-
-# A consequence of the distince 'devel' branch is that install.packages() sometimes points only to the 'release' repository, while users might want to have access to the leading-edge features in the develop version. 
-
-# An indirect consequence of Bioconductor's structured release is that packages generally have more extensive dependences with one another.
-
-# To update the installed Bioconductor packages.
-biocLite("BiocUpgrade")
-
-
-
 #Topic 6. lapply(), sapply()
 #====================================================
 
@@ -412,3 +384,34 @@ sapply(1:dim(data)[1], function(x){log10(sum(data[x,]))})
 # If the "simplify" parameter is turned off, sapply() will produced exactly the same results as lapply(), in the form of a list. By default, "simplify" is turned on.
 
 sapply(1:dim(data)[1], function(x){log10(sum(data[x,]))}, simplify=FALSE)
+
+
+#Topic 5. Installing packages in R
+#====================================================
+
+#There two ways to install bioconductor packages in R: biocLite(), install.packages()
+
+source("http://bioconductor.org/biocLite.R")
+## install core packages
+biocLite()
+## install specific packages
+biocLite("locfit")
+biocLite("edgeR")
+biocLite(c("topGO", "org.At.tair.db", "biomaRt", "KEGGREST", "WGCNA", "gplots"))
+```
+
+install.packages("ggplot2", repos="http://cran.us.r-project.org")
+
+# biocLite() is the recommended way to install Bioconductor packages. 
+
+# Bioconductor has a repository and release schedule that differ from R (Bioconductor has a ‘devel’ branch to which new packages and updates are introduced, and a stable ‘release’ branch emitted once every 6 months to which bug fixes but not new features are introduced). This mismatch causes that the version detected by install.packages() is sometimes not the most recent 'release'. 
+
+# A consequence of the distince 'devel' branch is that install.packages() sometimes points only to the 'release' repository, while users might want to have access to the leading-edge features in the develop version. 
+
+# An indirect consequence of Bioconductor's structured release is that packages generally have more extensive dependences with one another.
+
+# To update the installed Bioconductor packages.
+biocLite("BiocUpgrade")
+
+
+
