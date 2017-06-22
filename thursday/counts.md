@@ -57,6 +57,10 @@ NOTE: Workaround for using a symbolically linked 03-alignments directory:
     tail -n +5 C61_S67_star_alignment/C61_S67_ReadsPerGene.out.tab | cut -f1 > geneids.txt
     head geneids.txt
 
+NOTE: Workaround for using a symbolically linked 03-alignments directory:
+
+    tail -n +5 03-alignment/C61_S67_star_alignment/C61_S67_ReadsPerGene.out.tab | cut -f1 > geneids.txt
+
 Finally, we want to combine all of these columns together using the 'paste' command, and put it in a temporary file:
 
     paste geneids.txt *_star_alignment/*ReadsPerGene.out.tab.count > tmp.out
@@ -71,6 +75,14 @@ NOTE: Workaround for working with a symbolically linked 03-alignments directory:
 **5\.** The final step is to create a header for our final counts file and combine it with the temp file. The header is just all of the sample names separated by tabs. But also, let's only take the first part of the sample name, because we actually don't need the second part. And again, since we pasted the columns in sorted order (wildcards automatically sort in order), the columns just need to be in that same order... which is the order in our samples.txt file.
 
     cat samples.txt | cut -d_ -f1 | paste -s > header.txt
+
+NOTE: Workaround for working with a symbolically linked 03-alignments directory:
+
+    for x in 03-alignment/*/*ReadsPerGene.out.tab; do \
+        s=`basename $x | cut -f1 -d_`
+        echo $s
+    done | paste -s > header.txt
+
 
 We take the samples.txt file, cut out the first column where the delimiter is the underscore character, then pipe that to the 'paste' command with the '-s' option, which takes a column of values and transposes them into a row. And finally, let's put everything together:
 
