@@ -286,6 +286,10 @@ data <- read.table(file="raw_counts.txt", sep="\t", header=T, stringsAsFactors=F
 #Take a look at the beginning part of the data frame.
 head(data)
 
+#To read in data from the internet, one can input the file url to read.table() as following:
+read.table(file="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2017-June-RNA-Seq-Workshop/master/thursday/Intro2R/raw_counts.txt", sep="\t", header=T, stringsAsFactors=F)
+
+
 #Depending on the format of the file, several variants of read.table() are available to make reading a file easier.
 
 #read.csv(): for reading "comma separated value" files (.csv).
