@@ -47,7 +47,7 @@ plotDendroAndColors(sampleTree, colors=colours, groupLabels=c("Cultivar", "TimeP
 # Visualize differential expression results by volcano plot
 #biocLite(dplyr)
 library(dplyr)
-data <- read.table(file="I5_v_C_time6.txt", sep="\t", header=T, stringsAsFactors=F)
+data <- read.table(file="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2017-June-RNA-Seq-Workshop/master/friday/Figures/I5_v_C_time6.txt", sep="\t", header=T, stringsAsFactors=F)
 logFDR <- -log10(data$adj.P.Val)
 ## plot -log10(adj.P.Val) ~ logFC
 plot(data$logFC, logFDR, xlab="log2(Fold-Change)", ylab="-log10FDR")
@@ -91,10 +91,10 @@ heatmap.2(norm.counts[slt,], col=heat.colors, trace="none", margin=c(3,7))
 # Visulize pathway enrichment results
 #biocLite("pathview")
 library(pathview)
-DE.paths <- read.table(file="I5_v_C_time6_KEGG.txt", sep="\t", header=T, stringsAsFactors=F)
+DE.paths <- read.table(file="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2017-June-RNA-Seq-Workshop/master/friday/Figures/I5_v_C_time6_KEGG.txt", sep="\t", header=T, stringsAsFactors=F)
 head(DE.paths, 1)
 pid <- DE.paths$pathway.id[3]
-DE.expr <- read.table(file="I5_v_C_time6.txt", sep="\t", header=T, stringsAsFactors=F)
+DE.expr <- read.table(file="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2017-June-RNA-Seq-Workshop/master/friday/Figures/I5_v_C_time6.txt", sep="\t", header=T, stringsAsFactors=F)
 head(DE.expr, 2)
 rownames(DE.expr) <- DE.expr$Gene
 gene.data <- subset(DE.expr, select="logFC")
