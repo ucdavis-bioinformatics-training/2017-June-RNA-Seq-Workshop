@@ -5,5 +5,5 @@ Dr. Jie (Jessie) Li
 Data Analysit
 
 
-Jessie's [R Code](Intro2R.R)
+Jessie's [R Code](Intro2R/Intro2R.R)
 
