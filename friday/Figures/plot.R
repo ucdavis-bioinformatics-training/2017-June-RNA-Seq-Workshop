@@ -1,10 +1,12 @@
 #source("http://bioconductor.org/biocLite.R")
-#biocLite(RColorBrewer)
-#biocLite(cluster)
-#biocLite(WGCNA)
+#biocLite("RColorBrewer")
+#biocLite("cluster")
+#biocLite("WGCNA")
 #biocLite("lattice")
 #biocLite("genefilter")
 #biocLite("dplyr"")
+#biocLite("metaMA")
+install.packages("metaMA")
 library(edgeR)
 library(ggplot2)
 library(lattice)
@@ -53,10 +55,10 @@ colours <- data.frame(Cultivar=labels2colors(pdata$Cultivar), TimePoint=labels2c
 plotDendroAndColors(sampleTree, colors=colours, groupLabels=c("Cultivar", "TimePoint"), colorHeight=0.1, autoColorHeight=FALSE)
 
 # Visualize differential expression results by volcano plot
-#biocLite(dplyr)
+#biocLite("dplyr")
 library(dplyr)
 data <- read.table(file="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2017-June-RNA-Seq-Workshop/master/friday/Figures/I5_v_C_time6.txt", sep="\t", header=T, stringsAsFactors=F)
-logFDR <- -log10(data$adj.P.Val)
+logFDR <- -log10(data$adj.P.)
 ## plot -log10(adj.P.Val) ~ logFC
 plot(data$logFC, logFDR, xlab="log2(Fold-Change)", ylab="-log10FDR")
 ## clear plot area
@@ -72,6 +74,7 @@ p + geom_text(data=data[order(data$adj.P.Val, decreasing=FALSE)[1:10],], aes(lab
 dev.off()
 
 # Heatmaps
+biocL
 library(devtools)
 library(gplots)
 slt <- order(rv, decreasing=TRUE)[seq_len(20)]
@@ -89,6 +92,21 @@ clab <- cbind(labels2colors(pdata$Cultivar), labels2colors(pdata$TimePoint))
 colnames(clab) <- c("Cultivar", "TimePoint")
 heatmap.3(norm.counts[slt,], col=heat.colors, trace="none", cexRow=0.8, cexCol=0.8, ColSideColors=clab, RowSideColors=rlab, ColSideColorsSize=2, RowSideColorsSize=2)
 
+# select genes based on differential expression analysis results
+# first, load in your differential expression analysis results
+tmp <- read.table(file="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2017-June-RNA-Seq-Workshop/master/friday/Figures/I5_v_C_time6.txt", sep="\t", header=T, stringsAsFactors=F)
+sel.genes <- tmp$Gene[1:10]
+# then, match the names of your selected genes to the rownames of your counts table
+index <- match(sel.genes, rownames(norm.counts))
+# then, follow some steps from above to generate necessary colors and labels
+rowcols <- rep(brewer.pal(5, 'Set1'), each=2)
+names(rowcols) <- rownames(norm.counts[slt,])
+rlab <- t(rowcols)
+rownames(rlab) <- "GeneType"
+clab <- cbind(labels2colors(pdata$Cultivar), labels2colors(pdata$TimePoint))
+colnames(clab) <- c("Cultivar", "TimePoint")
+heatmap.3(norm.counts[index,], col=heat.colors, trace="none", cexRow=0.8, cexCol=0.8, ColSideColors=clab, RowSideColors=rlab, ColSideColorsSize=2, RowSideColorsSize=2)
+
 # Heatmap using log transformed data.
 log.counts <- cpm(counts, log=TRUE)
 rv <- rowVars(log.counts)
@@ -101,7 +119,7 @@ heatmap.2(log.counts[slt,], col=heat.colors, trace="none", margin=c(3,7))
 library(pathview)
 DE.paths <- read.table(file="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2017-June-RNA-Seq-Workshop/master/friday/Figures/I5_v_C_time6_KEGG.txt", sep="\t", header=T, stringsAsFactors=F)
 head(DE.paths, 1)
-pid <- DE.paths$pathway.id[3]
+pid <- DE.paths$pathway.code[3]
 DE.expr <- read.table(file="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2017-June-RNA-Seq-Workshop/master/friday/Figures/I5_v_C_time6.txt", sep="\t", header=T, stringsAsFactors=F)
 head(DE.expr, 2)
 rownames(DE.expr) <- DE.expr$Gene
