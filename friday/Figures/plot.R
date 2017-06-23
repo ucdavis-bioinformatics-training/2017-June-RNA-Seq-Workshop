@@ -1,3 +1,7 @@
+#source("http://bioconductor.org/biocLite.R")
+#biocLite(RColorBrewer)
+#biocLite(cluster)
+#biocLite(WGCNA)
 library(edgeR)
 library(ggplot2)
 library(RColorBrewer)
