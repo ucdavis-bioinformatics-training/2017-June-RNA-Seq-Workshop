@@ -85,11 +85,11 @@ clab <- cbind(labels2colors(pdata$Cultivar), labels2colors(pdata$TimePoint))
 colnames(clab) <- c("Cultivar", "TimePoint")
 heatmap.3(norm.counts[slt,], col=heat.colors, trace="none", cexRow=0.8, cexCol=0.8, ColSideColors=clab, RowSideColors=rlab, ColSideColorsSize=2, RowSideColorsSize=2)
 
-# Heatmap using log transformed data to select feature.
+# Heatmap using log transformed data.
 log.counts <- cpm(counts, log=TRUE)
 rv <- rowVars(log.counts)
 slt <- order(rv, decreasing=TRUE)[seq_len(20)]
-heatmap.2(norm.counts[slt,], col=heat.colors, trace="none", margin=c(3,7))
+heatmap.2(log.counts[slt,], col=heat.colors, trace="none", margin=c(3,7))
 
 
 # Visulize pathway enrichment results
