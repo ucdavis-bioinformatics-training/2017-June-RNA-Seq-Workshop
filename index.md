@@ -49,3 +49,12 @@ Friday
 * Transript Assembly/Annotation (talk)
 * Attendees Presentations
 
+Evaluation!
+============
+
+Please help us improve future workshops, for you and others, by filling out an [evaluation](https://goo.gl/forms/uwl2MGV1xMLUkHh42).
+
+
+
+
+
