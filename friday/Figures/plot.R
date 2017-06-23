@@ -5,7 +5,6 @@
 library(edgeR)
 library(ggplot2)
 library(RColorBrewer)
-library(plot3D)
 library(cluster)
 library(WGCNA)
 
