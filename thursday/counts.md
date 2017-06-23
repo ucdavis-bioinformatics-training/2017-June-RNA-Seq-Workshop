@@ -34,13 +34,7 @@ Now, C61_S67_ReadsPerGene.out.tab.count contains a single column of data... coun
 
     for x in *_star_alignment/*ReadsPerGene.out.tab; do echo $x; done
 
-This command takes all the files that we listed in step 1 and loops through them, one by one, and for every iteration, assigns the filename to the '$x' variable. Also, for every iteration, it runs whatever commands are between the 'do' and 'done'.... and every iteration the value of '$x' changes. The semi-colons separate the parts of the loop. The 'echo' command just prints the value of $x to the screen... in this case just the filename. However, instead, we will use our previously created command, but with $x instead of the filename:
-
-    for x in *_star_alignment/*ReadsPerGene.out.tab; do tail -n +5 $x | cut -f4 > $x.count; done
-
-After this command, all of the STAR directories should have a ReadsPerGene.out.tab.count file.
-
-NOTE: Workaround for using a symbolically linked 03-alignment directory:
+This command takes all the files that we listed in step 1 and loops through them, one by one, and for every iteration, assigns the filename to the '$x' variable. Also, for every iteration, it runs whatever commands are between the 'do' and 'done'.... and every iteration the value of '$x' changes. The semi-colons separate the parts of the loop. The 'echo' command just prints the value of $x to the screen... in this case just the filename. However, instead, we will use our previously created command, but with $x instead of the filename, and adding a few things:
 
     cd ../    # make sure you're in the dir above 03-alignment
     mkdir 04-Counts
@@ -50,23 +44,16 @@ NOTE: Workaround for using a symbolically linked 03-alignment directory:
         cat $x | tail -n +5 | cut -f4 > 04-Counts/$s.count
     done
 
+After this command, there should be a counts file for every sample in 04-Counts.
+
 ---
 
 **4\.** Next, we need to get the columns for the final table. Because all of these files are sorted in the exact same order (by gene ID), we can just use the columns from any of the files:
 
-    tail -n +5 C61_S67_star_alignment/C61_S67_ReadsPerGene.out.tab | cut -f1 > geneids.txt
+    tail -n +5 03-alignment/C61_S67_star_alignment/C61_S67_ReadsPerGene.out.tab | cut -f1 > geneids.txt
     head geneids.txt
 
-NOTE: Workaround for using a symbolically linked 03-alignment directory:
-
-    tail -n +5 03-alignment/C61_S67_star_alignment/C61_S67_ReadsPerGene.out.tab | cut -f1 > geneids.txt
-
 Finally, we want to combine all of these columns together using the 'paste' command, and put it in a temporary file:
-
-    paste geneids.txt *_star_alignment/*ReadsPerGene.out.tab.count > tmp.out
-    head tmp.out
-
-NOTE: Workaround for working with a symbolically linked 03-alignment directory:
 
     paste geneids.txt 04-Counts/*.count > tmp.out
 
