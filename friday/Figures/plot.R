@@ -5,8 +5,9 @@ library(plot3D)
 library(cluster)
 library(WGCNA)
 
-data <- read.table(file="all_counts.txt", sep="\t", header=T, stringsAsFactors=F)
-pdata <- read.table(file="pdata.txt", sep="\t", header=T, stringsAsFactors=F)
+# read in expression counts data and meta data
+data <- read.table(file="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2017-June-RNA-Seq-Workshop/master/thursday/all_counts.txt", sep="\t", header=T, stringsAsFactors=F)
+pdata <- read.table(file="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2017-June-RNA-Seq-Workshop/master/friday/Figures/pdata.txt", sep="\t", header=T, stringsAsFactors=F)
 pdata$Cultivar <- factor(pdata$Cultivar, levels=c("C", "I5", "I8"))
 pdata$TimePoint <- factor(pdata$TimePoint, levels=c("6", "9"))
 
