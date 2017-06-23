@@ -44,7 +44,7 @@ Explore the directory that you've just created. You'll find annotation and index
 
 **5\.** Now, let's run some Q&A on one pair of our raw data files. First go back to our Q&A directory and load the bowtie2 aligner:
 
-    cd ~/rnaseq_example/01-QA
+    cd ~/rnaseq_example/02-QA
     ls -ltrh
     module load bowtie2
 

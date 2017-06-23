@@ -34,7 +34,7 @@ Wednesday
 Thursday
 ==========
 
-* Intro to R
+* [Intro to R](thursday/Intro2R.md)
 * Differential Gene Expression Statistics (talk)
 * [Alignments to Counts](thursday/counts)
 * [DE Analysis: counts to lists of DE genes](thursday/de-analysis.md)
@@ -45,8 +45,8 @@ Friday
 
 * GO/KEGG Pathway Enrichment
 * Single Cell RNA-Seq (talk)
-* Generating figures
-* Transript Assembly/Annotation (talk)
+* [Generating figures](friday/Figures/plot.R)
+* [Transript Assembly/Annotation](https://github.com/ucdavis-bioinformatics-training/2017-June-RNA-Seq-Workshop/raw/master/friday/Friday_June_2017_MB_RNASeq_Assembly.pdf) (talk)
 * Attendees Presentations
 
 Evaluation!
