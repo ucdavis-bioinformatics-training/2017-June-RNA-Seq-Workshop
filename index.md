@@ -34,7 +34,7 @@ Wednesday
 Thursday
 ==========
 
-* Intro to R
+* [Intro to R](thursday/Intro2R.md)
 * Differential Gene Expression Statistics (talk)
 * [Alignments to Counts](thursday/counts)
 * [DE Analysis: counts to lists of DE genes](thursday/de-analysis.md)
