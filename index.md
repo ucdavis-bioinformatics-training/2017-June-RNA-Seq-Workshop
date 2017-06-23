@@ -44,9 +44,17 @@ Thursday
 Friday
 =======
 
-* GO/KEGG Pathway Enrichment
-* Single Cell RNA-Seq (talk)
+* [Transript Assembly/Annotation](friday/Friday_June_2017_MB_RNASeq_Assembly.pdf) (talk)
+* GO/KEGG Pathway Enrichment: [GO](friday/GO.R), [KEGG](friday/KEGG.R)
+* [Single Cell RNA-Seq](friday/scRNAseq.pdf)  (talk)
 * [Generating figures](friday/Figures/plot.R)
-* [Transript Assembly/Annotation](https://github.com/ucdavis-bioinformatics-training/2017-June-RNA-Seq-Workshop/raw/master/friday/Friday_June_2017_MB_RNASeq_Assembly.pdf) (talk)
-* Attendees Presentations
+
+Evaluation!
+============
+
+Please help us improve future workshops, for you and others, by filling out an [evaluation](https://goo.gl/forms/uwl2MGV1xMLUkHh42).
+
+
+
+
 
