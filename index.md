@@ -22,20 +22,18 @@ Tuesday
 Wednesday
 ==========
 
-* [Intro to Sequencing](wednesday/Bioinformatics_Workshop_2017_RNA_s_o_Sequencing.pdf), Lutz Froenicke (talk)
+* [Intro to Sequencing, Lutz Froenicke](wednesday/Bioinformatics_Workshop_2017_RNA_s_o_Sequencing.pdf) (talk)
 * [Aligners](wednesday/aligners) (talk)
 * [Contamination detection](wednesday/contamination)
-* [Tag-Seq vs. RNA-Seq (talk)](wednesday/TagSeqVSRnaSeq.pdf)
+* [Tag-Seq vs. RNA-Seq](wednesday/TagSeqVSRnaSeq.pdf) (talk)
 * [Aligning Data and IGV](wednesday/alignment)
-* Alignment to Counts and MDS Plots
-* Bacterial RNA-Seq (talk)
 
 
 Thursday
 ==========
 
 * [Intro to R](thursday/Intro2R.md)
-* Differential Gene Expression Statistics (talk)
+* [Differential Gene Expression Statistics](thursday/Differential_Expression_Analysis.pdf) (talk)
 * [Alignments to Counts](thursday/counts)
 * [DE Analysis: counts to lists of DE genes](thursday/de-analysis.md)
 * [Bacterial RNASeq](thursday/BacterialRNASeq.pdf) (talk)
