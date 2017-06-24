@@ -48,6 +48,7 @@ Friday
 * GO/KEGG Pathway Enrichment: [GO](friday/GO.R), [KEGG](friday/KEGG.R)
 * [Single Cell RNA-Seq](friday/scRNAseq.pdf)  (talk)
 * [Generating figures](friday/Figures/plot.R)
+* [Closing thoughts](friday/Closing_Thoughts.pdf)
 
 Evaluation!
 ============
