@@ -5,5 +5,5 @@ Dr. Jie (Jessie) Li
 Data Analysit
 
 
-Jessie's [plot Code](plot.R)
+Jessie's [plot Code](Figure/plot.R)
 
