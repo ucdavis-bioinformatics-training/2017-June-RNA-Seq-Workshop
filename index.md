@@ -45,7 +45,7 @@ Friday
 * [Transript Assembly/Annotation](friday/Friday_June_2017_MB_RNASeq_Assembly.pdf) (talk)
 * GO/KEGG Pathway Enrichment: [GO](friday/GO.R), [KEGG](friday/KEGG.R)
 * [Single Cell RNA-Seq](friday/scRNAseq.pdf)  (talk)
-* [Generating figures](friday/Figures/plot.R)
+* [Generating figures](friday/generate-figures.md)
 * [Closing thoughts](friday/Closing_Thoughts.pdf)
 
 Evaluation!
